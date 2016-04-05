@@ -1,0 +1,189 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body,html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	background: url(/images/login/bg-11.jpg) no-repeat fixed center bottom;
+}
+
+.bss_login_wrap{
+	width: 100%;
+	height: 100%;
+	font-family: "Microsoft yahei";
+	
+}
+
+.bss_login_main{
+	width: 360px;
+	height: 540px;
+	position: absolute;
+	top: 50%;
+	margin-top: -270px;
+	left: 50%;
+	margin-left: -180px;
+}
+
+.bss_login_main.relative{
+	position: relative;
+	margin: 0 auto 30px;
+	left: 0;
+	top: 0;
+}
+
+.bss_login_main h3{
+	text-align: center;
+	color: #fff;
+	font-size: 28px;
+	padding: 30px 0;
+}
+
+.bss_login_main .bl_main{
+	width: 100%;
+	border-radius: 3px;
+	background: rgba(244,246,249,0.5)!important;
+	background: #f4f6f9;
+	filter:alpha(opacity=50);
+	min-height: 450px;
+}
+
+.bl_main_con{
+	padding: 64px 30px;
+	position: relative;
+}
+
+.bl_main_con p.tips{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size:14px;
+	background: rgba(186,84,9,0.8);
+	color: #fff;
+	border-radius: 3px 3px 0 0;
+}
+
+.login_input{
+	position: relative;
+}
+
+.login_input p input.text{
+	border: 0 none;
+	height: 16px;
+	line-height: 16px;
+	padding: 10px;
+	width: 278px;
+	border: 1px solid #edeeef;
+	border-radius: 3px;
+	position: relative;
+}
+
+.login_input p.mb15{
+	margin-bottom: 15px;
+}
+
+.login_input p.icon_left input.text{
+	padding: 10px 10px 10px 36px;
+	width: 252px;
+}
+
+.login_input p.icon_left{
+	position: relative;
+}
+
+.login_input p.icon_left .m_icon{
+	position: absolute;
+	left: 0;
+	top: 1px;
+	background: #fff;
+	border-radius: 3px 0 0 3px;
+	z-index: 1;
+	width: 36px;
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+	font-size: 0;
+}
+.login_input p.icon_left .m_icon img{
+	vertical-align: middle;
+}
+
+.login_input p.yzm_line{
+	position: relative;
+}
+
+.login_input p.yzm_line input.text{
+	width: 165px;
+}
+
+.login_input p.yzm_line .yzm_icon{
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	width: 100px;
+	height: 36px;
+	cursor: pointer;
+}
+
+.login_input p.yzm_line .close{
+	position: absolute;
+	left: 160px;
+	top: 50%;
+	width: 18px;
+	height: 18px;
+	margin-top: -9px;
+}
+
+.pd_choose{
+	color: #fff;
+}
+
+.pd_choose label input{
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+.pd_choose .forget_pd{
+	float: right;
+	color: #fff;
+}
+
+.pd_choose .forget_pd:hover{
+	color: #171d25;
+}
+
+.post_bt a.login{
+	background: #3598dc;
+	color: #fff;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	border: 1px solid #3598dc;
+	border-radius: 3px;
+	display: block;
+	width: 100%;
+}
+
+.post_bt a.register,.post_bt a.login:active{
+	background: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	display: block;
+	width: 100%;
+}
+
+.post_bt a.register:active{
+	background: #3598dc;
+	color: #fff;
+	border: 1px solid #3598dc;
+}

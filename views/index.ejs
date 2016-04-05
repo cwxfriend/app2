@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="/javascripts/common/jquery2.1.4.min.js"></script>
+</head>
+<body>
+<%=title %>
+<p>用户名：<%=data.userName %></p>
+<p>密码：<%=data.pwd %></p>
+<button id="ds">aaa</button>
+<button id="dss">bbb</button>
+
+
+
+
+<p><input type="text" jq-bind="#a" /></p>
+<p><input type="text" jq-bind=".b" /></p>
+<p><input type="text" jq-bind=".b" /></p>
+<p><input type="text" jq-bind=".bb" /></p>
+<p>
+    <input type="radio" value="ds" jq-bind=".cc" name="cc" />
+    <input type="radio" value="dss" jq-bind=".cc" name="cc" />
+</p>
+<p>
+    <input type="checkbox" value="1" jq-bind=".qqq" name="ccc" />
+    <input type="checkbox" value="2" jq-bind=".qqq" name="ccc" />
+    <input type="checkbox" value="3" jq-bind=".qqq" name="ccc" />
+</p>
+<p><textarea jq-bind=".abb"></textarea></p>
+<p>
+    <select jq-bind=".acc">
+        <option value="">null</option>
+        <option value="dfd">dfd</option>
+        <option value="011">011</option>
+    </select>
+</p>
+
+<p class="qqq"></p>
+<p class="cc">aaq</p>
+<p class="abb"></p>
+<span id="a">aa</span>
+<p id="a">aa</p>
+<span class="b">aa</span>
+<div class="b">aa</div>
+<p class="b">aa</p>
+<p class="acc"></p>
+
+<script>
+    var dataBinder = (function($,con){
+        var attr_bind = 'jq-bind';
+        var setData = function(attr,newVal){
+            $(attr).each(function(){
+                if($(this).is('input,textarea,select')){
+                    $(this).val(newVal);
+                }else{
+                    $(this).html(newVal);
+                }
+            });
+            $('['+ attr_bind +'="' + attr + '"]').each(function(){
+                if($(this).attr('type')!='radio'&&$(this).attr('type')!='checkbox'){
+                    $(this).val(newVal);
+                }
+            })
+        }
+        var binder = function(){
+            $(document).on('change keydown keyup','[' + attr_bind +  ']',function(){
+                var $this = $(this);
+                if($this.is('input')){
+                    if($this.attr('type')=='checkbox'){
+                        var d = [];
+                        $('[name="' + $this.attr('name') + '"]').each(function(){
+                            if($(this).prop('checked')){
+                                d.push($(this).val());
+                            }
+                        });
+                        setData($this.attr(attr_bind),d);
+                    }else if($this.attr('type')=='radio'){
+                        $('[name="'+$this.attr('name') +'"]').each(function(){
+                            if($(this).prop('checked')){
+                                setData($this.attr(attr_bind),$(this).val());
+                                return false;
+                            }
+                        });
+                    }else{
+                        setData($this.attr(attr_bind),$this.val());
+                    }
+                }else{
+                    setData($this.attr(attr_bind),$this.val());
+                }
+            });
+        }
+        con.setter = function (attr,newVal){
+            setData(attr,newVal);
+        }
+        con.getter = function(attr){
+            var obj = $("[" + attr_bind + "='"+ attr +"']");
+            var val = '';
+            var d = [];
+            obj.each(function() {
+                if ($(this).attr('type') == 'radio') {
+                    if ($(this).prop('checked')) {
+                        val = $(this).val();
+                    }
+                } else if ($(this).attr('type') == 'checkbox') {
+                    if ($(this).prop('checked')) {
+                        d.push($(this).val());
+                    }
+                    val = d;
+                } else {
+                    val = $(this).val();
+                }
+            });
+            return val;
+        }
+        binder();
+        return con;
+    })(jQuery||{},dataBinder||{});
+
+
+  $('#ds').click(function() {
+      $('body').append('<p class="bb">aa</p>');
+      dataBinder.setter('.bb','1235');
+      $.ajax({
+          type:'get',
+          url:'/api/getUserList',
+          success:function(data){
+              console.log(data);
+          }
+      })
+  });
+    $('#dss').click(function() {
+        console.log(dataBinder.getter('.qqq'));
+        console.log(dataBinder.getter('.b'));
+        console.log(dataBinder.getter('.bb'));
+    });
+</script>
+</body>
+</html>

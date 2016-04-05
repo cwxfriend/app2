@@ -1,0 +1,111 @@
+@charset "utf-8";
+body{
+	font-size: 14px;
+	font-family: "microsoft yahei";
+	color: #666;
+}
+
+
+.mb10{margin-bottom: 10px;}
+.mb20{margin-bottom: 20px;}
+.mb30{margin-bottom: 30px;}
+.mb40{margin-bottom: 40px;}
+.mb50{margin-bottom: 50px;}
+.mb60{margin-bottom: 60px;}
+
+.mt10{margin-top: 10px;}
+.mt20{margin-top: 20px;}
+.mt30{margin-top: 30px;}
+.mt40{margin-top: 40px;}
+.mt50{margin-top: 50px;}
+.mt60{margin-top: 60px;}
+
+.pb10{padding-bottom: 10px;}
+.pb20{padding-bottom: 20px;}
+.pb30{padding-bottom: 30px;}
+.pb40{padding-bottom: 40px;}
+.pb50{padding-bottom: 50px;}
+.pb60{padding-bottom: 60px;}
+
+.pt10{padding-top: 10px;}
+.pt20{padding-top: 20px;}
+.pt30{padding-top: 30px;}
+.pt40{padding-top: 40px;}
+.pt50{padding-top: 50px;}
+.pt60{padding-top: 60px;}
+
+.fl{float: left;}
+.fr{float: right;}
+
+
+/*按钮 button*/
+a.bs_bt{
+	width: 104px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	color: #fff;
+	background: #0077d6;
+	border-radius: 2px;
+}
+
+a.bs_bt:hover{
+	color: #0077d6;
+	background: #fff;
+}
+
+.min_height500{
+	min-height: 500px;
+}
+
+
+/*页面布局*/
+.bs_table {
+    background: #eff2f7;
+    width: 100%;
+}
+.mvno_main .bs_table_main{
+    background: #fff;
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 5px 0 0;
+    width: 1140px;
+}
+.mg24{
+	margin: 0 24px;
+}
+.btm_tit {
+    border-bottom: 1px solid #eeeeee;
+    clear: both;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.btm_tit .add_bt{
+	height: 26px;
+	line-height: 26px;
+	font-size: 12px;
+	padding: 17px 0; 
+	float: right;
+	width: 178px;
+}
+
+.btm_tit .add_bt.width_3{
+	width: 284px;
+}
+
+.btm_tit .add_bt a.bt{
+	width: 80px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 30px;
+	color: #666;
+	border: 1px solid #cccccc;
+	margin-left: 10px;
+}
+
+.btm_tit .add_bt a.bt:hover{
+	background: #f9f9f9;
+	color: #888;
+}
+
