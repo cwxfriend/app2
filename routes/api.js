@@ -3,7 +3,7 @@
  */
 
 exports.apiList = function(app){
-    var login = require('./login');
+    var login = require('./api/login');
     app.get('/api/getUserList', function(req, res){
         res.send("respond with a resource");
     });

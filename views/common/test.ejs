@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <script src="/javascripts/plugin/jquery2.1.4.min.js"></script>
+</head>
+<body>
+    <input type="button" id="fd" />
+<script>
+    var ff = function(){
+        var str = 'select * from {{ 0 }} where userName ={{1}} and pwd ={{2}}';
+        str = cc(str,['tb_user','cwx','"12346"']);
+        console.log(str);
+    }
+    var cc = function(str,parton) {
+        try {
+            for (var i = 0; i < parton.length; i++) {
+                var f = str.indexOf('{{'),b = str.indexOf('}}');
+                if(b - f==3){
+                    str = str.replace(str.substring(f, b + 2), "'" + parton[str.substring(f + 2, b).trim()]+"'");
+                }else if(b -f ==5) {
+                    str = str.replace(str.substring(f, b + 2), parton[str.substring(f + 2, b).trim()]);
+                }
+            }
+        }catch(e){
+            console.log('字符串：' + str);
+            console.log('填写格式无法被识别，转换失败！');
+            str = '';
+        }
+        return str;
+    }
+    $('#fd').click(function(){
+        ff();
+    });
+
+</script>
+</body>
+</html>
